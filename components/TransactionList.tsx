@@ -118,9 +118,17 @@
 // }
 
 "use client";
-import { ITransaction } from "@/lib/models";
+//import { ITransaction } from "@/lib/models";
 import { Trash, Pencil } from "lucide-react";
 import { useEffect, useState } from "react";
+
+interface ITransaction {
+  _id: string;
+  amount: number;
+  description: string;
+  date: string;
+  category: string;
+}
 
 interface Transaction {
   _id: string;
@@ -137,9 +145,9 @@ export default function TransactionList({
 }: {
   refresh: number;
   onRefresh: () => void;
-   onEdit: (tx: ITransaction) => void;
+   onEdit: (tx: Transaction) => void;
 }) {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 

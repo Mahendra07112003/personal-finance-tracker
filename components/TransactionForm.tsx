@@ -33,7 +33,9 @@ export default function TransactionForm({onAdd, editingTransaction,onClearEdit,}
     if (editingTransaction) {
       setAmount(editingTransaction.amount.toString());
       setDescription(editingTransaction.description);
-      setDate(editingTransaction.date.slice(0, 10)); // format for input
+      // setDate(editingTransaction.date.slice(0, 10)); // format for input
+      setDate(new Date(editingTransaction.date).toISOString().slice(0, 10));
+
       setCategory(editingTransaction.category || "");
     }
   }, [editingTransaction]);
