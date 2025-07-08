@@ -15,7 +15,8 @@ export async function DELETE(
     return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
   }
 }
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, context: { params: { id: string } }) {
+  const { id } = context.params;
   // await connectDB();
   const data = await req.json();
   const updated = await Transaction.findByIdAndUpdate(params.id, data, { new: true });
