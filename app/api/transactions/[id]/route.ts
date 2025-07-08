@@ -65,14 +65,44 @@
 //   }
 // }
 
+// import { NextRequest, NextResponse } from 'next/server';
+// import { connectToDB } from '@/lib/db';
+// import { Transaction } from '@/lib/models';
+
+// export async function PUT(
+//   req: NextRequest,
+//   context: { params: { id: string } }  // ✅ ✅ ✅
+// ) {
+//   try {
+//     await connectToDB();
+//     const id = context.params.id;
+//     const data = await req.json();
+//     const updated = await Transaction.findByIdAndUpdate(id, data, { new: true });
+//     return NextResponse.json(updated);
+//   } catch (error) {
+//     return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
+//   }
+// }
+
+// export async function DELETE(
+//   req: NextRequest,
+//   context: { params: { id: string } }  // ✅ ✅ ✅
+// ) {
+//   try {
+//     await connectToDB();
+//     const id = context.params.id;
+//     await Transaction.findByIdAndDelete(id);
+//     return NextResponse.json({ success: true });
+//   } catch (error) {
+//     return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
+//   }
+// }
+
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDB } from '@/lib/db';
 import { Transaction } from '@/lib/models';
 
-export async function PUT(
-  req: NextRequest,
-  context: { params: { id: string } }  // ✅ ✅ ✅
-) {
+export async function PUT(req: NextRequest, context: any) {
   try {
     await connectToDB();
     const id = context.params.id;
@@ -80,20 +110,19 @@ export async function PUT(
     const updated = await Transaction.findByIdAndUpdate(id, data, { new: true });
     return NextResponse.json(updated);
   } catch (error) {
+    console.error('PUT error:', error);
     return NextResponse.json({ error: 'Failed to update' }, { status: 500 });
   }
 }
 
-export async function DELETE(
-  req: NextRequest,
-  context: { params: { id: string } }  // ✅ ✅ ✅
-) {
+export async function DELETE(req: NextRequest, context: any) {
   try {
     await connectToDB();
     const id = context.params.id;
     await Transaction.findByIdAndDelete(id);
     return NextResponse.json({ success: true });
   } catch (error) {
+    console.error('DELETE error:', error);
     return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
   }
 }
