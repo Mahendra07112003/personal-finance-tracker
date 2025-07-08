@@ -145,7 +145,7 @@ export default function TransactionList({
 }: {
   refresh: number;
   onRefresh: () => void;
-   onEdit: (tx: Transaction) => void;
+   onEdit: (tx: ITransaction) => void;
 }) {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
   const [loading, setLoading] = useState(true);
