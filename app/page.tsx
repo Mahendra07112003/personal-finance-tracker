@@ -9,10 +9,16 @@ import CategoryPieChart from "@/components/CategoryPieChart";
 import BudgetForm from "@/components/BudgetForm";
 import BudgetChart from "@/components/BudgetChart";
 import SpendingInsights from "@/components/SpendingInsights";
-import type { ITransaction } from '@/lib/models';
+//import type { ITransaction } from '@/lib/models';
 
 
-
+interface ITransaction {
+  _id: string;
+  amount: number;
+  description: string;
+  date: string;
+  category: string;
+}
 type Tab = "dashboard" | "transactions" | "budget" | "insights";
 
 export default function HomePage() {
@@ -123,7 +129,8 @@ export default function HomePage() {
               <TransactionList
                 refresh={refreshKey}
                 onRefresh={() => setRefreshKey((k) => k + 1)}
-                onEdit={setEditingTransaction}
+                onEdit={(tx) => setEditingTransaction(tx as ITransaction)}
+                //onEdit={setEditingTransaction{tx}}
               />
             </div>
           </div>

@@ -2,16 +2,17 @@
 "use client";
 
 
-import { ITransaction } from "@/lib/models";
+//import { ITransaction } from "@/lib/models";
 import { useEffect, useState } from "react";
 
-interface Transaction {
+interface ITransaction {
   _id: string;
   amount: number;
   description: string;
   date: string;
-  category?: string;
+  category: string;
 }
+
 
 interface TransactionFormProps {
   onAdd: () => void;
