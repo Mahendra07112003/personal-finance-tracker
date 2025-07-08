@@ -68,12 +68,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connectToDB } from '@/lib/db';
 import { Transaction } from '@/lib/models';
-import type { NextApiHandler } from 'next';
-import type { RouteHandlerContext } from 'next/dist/server/web/types';
 
 export async function PUT(
   req: NextRequest,
-  context: RouteHandlerContext<{ id: string }>
+  context: { params: { id: string } }  // ✅ ✅ ✅
 ) {
   try {
     await connectToDB();
@@ -88,7 +86,7 @@ export async function PUT(
 
 export async function DELETE(
   req: NextRequest,
-  context: RouteHandlerContext<{ id: string }>
+  context: { params: { id: string } }  // ✅ ✅ ✅
 ) {
   try {
     await connectToDB();
