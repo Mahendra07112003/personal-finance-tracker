@@ -9,7 +9,8 @@ import CategoryPieChart from "@/components/CategoryPieChart";
 import BudgetForm from "@/components/BudgetForm";
 import BudgetChart from "@/components/BudgetChart";
 import SpendingInsights from "@/components/SpendingInsights";
-import { Transaction } from "@/lib/models";
+import type { Transaction } from '@/lib/models';
+
 
 
 type Tab = "dashboard" | "transactions" | "budget" | "insights";
