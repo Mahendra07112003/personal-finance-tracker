@@ -9,7 +9,7 @@ import CategoryPieChart from "@/components/CategoryPieChart";
 import BudgetForm from "@/components/BudgetForm";
 import BudgetChart from "@/components/BudgetChart";
 import SpendingInsights from "@/components/SpendingInsights";
-import type { Transaction } from '@/lib/models';
+import type { ITransaction } from '@/lib/models';
 
 
 
@@ -18,7 +18,7 @@ type Tab = "dashboard" | "transactions" | "budget" | "insights";
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<Tab>("dashboard");
   const [refreshKey, setRefreshKey] = useState(0);
-  const [editingTransaction, setEditingTransaction] = useState< Transaction | null>(null);
+  const [editingTransaction, setEditingTransaction] = useState< ITransaction | null>(null);
   const [selectedMonth, setSelectedMonth] = useState(() =>
     new Date().toISOString().slice(0, 7)
   );
