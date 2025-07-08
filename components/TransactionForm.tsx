@@ -2,6 +2,7 @@
 "use client";
 
 
+import { ITransaction } from "@/lib/models";
 import { useEffect, useState } from "react";
 
 interface Transaction {
@@ -14,7 +15,7 @@ interface Transaction {
 
 interface TransactionFormProps {
   onAdd: () => void;
-  editingTransaction?: Transaction | null;
+  editingTransaction?: ITransaction | null;
   onClearEdit: () => void;
 }
 
