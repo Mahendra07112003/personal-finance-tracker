@@ -90,7 +90,7 @@ personal-finance-tracker/
 ## ✅ Deployment (Vercel Recommended)
 
 1. Push your code to GitHub  
-2. Go to [https://vercel.com/new](https://vercel.com/new)  
+2. Go to [https://vercel.com/new](https://personal-finance-tracker-ashy-two.vercel.app/)  
 3. Import your GitHub repo  
 4. Add `MONGODB_URI` in Vercel Environment Variables  
 5. Deploy!
